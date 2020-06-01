@@ -6,10 +6,21 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <% if flash[:notice] %>
+    	<div class="notification is-primary global-notification">
+  	  	<p class="notice"><%= notice %></p>
+    	</div>
+   	<% end %>
+    <% if flash[:alert] %>
+      <div class="notification is-danger global-notification">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
